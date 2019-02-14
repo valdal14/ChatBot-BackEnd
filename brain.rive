@@ -1,0 +1,42 @@
++ hello
+- Hello how can I help you?
+- Hi there! how can I help you?
+- Hey! how can I help you?
+- Hi! how can I help you?
+
++ how are you
+- I am fine, thanks for asking
+- I am great thanks
+
++ * problem
+- I am sorry to hear that, can you please tell me a bit more.
+
++ * address
+- Do you want me to retrieve your order history?
+
++ yes
+- Below the list of your last orders:
+
++ thanks
+- You are welcome, I hope I was helpful
+
++ bye
+- Have a great day
+
++ who is your dad
+- My dad is Valerio
+
++ order number *
+- Please enter the new address for order number <star1>
+
++ my new address is *
+- Address updated and I have informed the courier
+
++ google *
+- I found this: <a href="http://google.com/search?q=<star>" target="_blank">Click Here</a>
+
++ open a service request
+- Please prefix your query with "service request" and write your message
+
++ service request *
+- Please wait opening a request with message: <star1>

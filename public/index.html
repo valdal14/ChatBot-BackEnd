@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span id="Speech"></span>
+    <br />
+    <span id="Responses"></span>
+    <button id="btnTalk">Talk</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
+    <script src="./p5.speech.js"></script>
+    <script>
+      var myRec = new p5.SpeechRec();
+      var myVoice = new p5.Speech();
+
+      document.querySelector("#btnTalk").addEventListener("click", function(e) {
+        e.preventDefault();
+        myRec.onResult = showResult;
+        myRec.start();
+      });
+
+      function showResult() {
+        if (myRec.resultValue == true) {
+          // add what we saied to the ui
+          document.querySelector("#Speech").textContent = myRec.resultString;
+          console.log(myRec.resultString);
+          sendText(myRec.resultString);
+        }
+      }
+
+      function sendText(text) {
+        fetch("/speech", {
+          method: "POST",
+          headers: new Headers({
+            "Content-Type": "application/json"
+          }),
+          body: JSON.stringify({
+            message: text
+          })
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data);
+            document.querySelector("#Responses").textContent = data.message;
+            myVoice.speak(data.message);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>

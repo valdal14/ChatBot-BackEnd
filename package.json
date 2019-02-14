@@ -1,0 +1,31 @@
+{
+  "name": "chatbot-backend",
+  "version": "1.0.0",
+  "description": "ChatBot Backend for OCCS implementations",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "./node_modules/.bin/nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valdal14/ChatBot-BackEnd.git"
+  },
+  "author": "@valdal14",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/valdal14/ChatBot-BackEnd/issues"
+  },
+  "homepage": "https://github.com/valdal14/ChatBot-BackEnd#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "rivescript": "^2.0.0-beta.1",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
